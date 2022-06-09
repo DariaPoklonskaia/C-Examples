@@ -47,4 +47,40 @@ Console.WriteLine("max is " + max);
 */ 
 
 // Ex 3
+/*
+int num;
+
+Console.WriteLine("Inter integer number ");
+num = Convert.ToInt32(Console.ReadLine());
+
+int residual = num % 2;
+
+if(residual == 0)
+{
+    Console.WriteLine("Yes");
+}
+else
+{
+    Console.WriteLine("No");
+}
+*/
+
+//Ex 4
+
+int num;
+
+Console.WriteLine("Inter integer number ");
+num = Convert.ToInt32(Console.ReadLine());
+
+int count = 2;
+
+if (num < count)
+{
+    Console.Write("No even number before " + num);
+}
+while (num >= count)
+{
+    Console.Write(count + " ");
+    count = count +2;
+}
 
