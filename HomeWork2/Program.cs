@@ -1,11 +1,11 @@
 ﻿
 // Ex1
-/*
+
 int CutNumber(int number)
 {
     if (Math.Abs(number) > 99 && Math.Abs(number) < 1000)
     {
-        int result = (number/10) - (10*(number/100));
+        int result = ((number%100) - (number%10))/10;
         return Math.Abs(result);
     }
         else
@@ -20,7 +20,7 @@ int usernum = Convert.ToInt32(Console.ReadLine());
 
 Console.WriteLine(CutNumber(usernum));
 
-*/
+
 
 
 //Ex 2
@@ -78,7 +78,7 @@ Console.WriteLine(CheckWeekends(userDay));
 */ 
 
 //Ex3 (var2)
-
+/*
 bool CheckWeekends(int day)
 {
     return (day >5 && day<8);
@@ -88,4 +88,4 @@ Console.WriteLine("Inter day of the week from 1 to 7, where 1 - Monday and 7 - S
 int userDay = Convert.ToInt32(Console.ReadLine());
 
 Console.WriteLine(CheckWeekends(userDay));
-
+*/
