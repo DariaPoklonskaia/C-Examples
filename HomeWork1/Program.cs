@@ -79,7 +79,7 @@ if (num < count)
     Console.Write("No even number before " + num);
 }
 while (num >= count)
-{
+
     Console.Write(count + " ");
     count = count +2;
 }

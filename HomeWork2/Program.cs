@@ -5,7 +5,7 @@ int CutNumber(int number)
 {
     if (Math.Abs(number) > 99 && Math.Abs(number) < 1000)
     {
-        int result = ((number%100) - (number%10))/10;
+        int result = ((number/10)%10);
         return Math.Abs(result);
     }
         else
