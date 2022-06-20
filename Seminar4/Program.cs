@@ -59,7 +59,7 @@ int userNum = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine(Find(userNum));
 */
 // Ex4 принимает число и возвращает количество цифр в этом числе. 
-
+/*
 int FindNofDigits (int num)
 {
     int count = 0; 
@@ -76,3 +76,20 @@ Console.WriteLine("Input number");
 int userNum = Convert.ToInt32(Console.ReadLine());
 
 Console.WriteLine(FindNofDigits(userNum));
+*/
+
+// вывести массив
+
+
+int size = 8;
+int[] array = new int[size];
+
+for (int i = 0; i < size; i++)
+{
+    array[i] = new Random().Next(0,2);
+}
+
+for (int i = 0; i < size; i++)
+{
+    Console.Write(array[i] + " ");
+}
