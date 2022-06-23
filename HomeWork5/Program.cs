@@ -60,7 +60,7 @@ Console.WriteLine("Sum of elements on uneven positions is " + FindSumUnevenPosot
 
 */
 // Ex3 Создать массив с вещественными числами и найти разницу между макс и мин
-
+/*
 double[] CreteRandomArray(int size)
 {
     double[] newArray = new double[size];
@@ -98,4 +98,34 @@ double FindMin(double[] array)
 double[] myArray = CreteRandomArray(5);
 double difference = FindMax(myArray) - FindMin(myArray);
 
-Console.WriteLine("Difference b/w mam and min is " + difference);
+Console.WriteLine("Difference b/w max and min is " + difference);
+*/ 
+
+//Ex4 из прошлой ДЗ про степень
+
+int Pow(int a, int b)
+{
+    int result = 1;
+    
+    if (b>=0)
+    {
+        for (int i = 1; i <= b; i++)
+            {
+                result = result*a;
+            }
+    }
+    else result = -1;
+    return result;
+}
+
+Console.WriteLine("input base of power");
+int userA = Convert.ToInt32(Console.ReadLine());
+
+Console.WriteLine("input natural power");
+int userB = Convert.ToInt32(Console.ReadLine());
+
+int powAB = Pow(userA, userB);
+if (Pow(userA, userB) == -1) Console.WriteLine("power is not natural");
+else Console.WriteLine("result is " + powAB);
+
+
