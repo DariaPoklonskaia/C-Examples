@@ -50,33 +50,31 @@ int[,] CreateRandomTwoDemArray(int a, int b, int min, int max)
 {
     int[,] newMatrix = new int[a, b];
     for(int i = 0; i < a; i++)
-    {
         for (int j = 0; j<b; j++)
-        {
             newMatrix[i,j] = new Random().Next(min, max +1); // строки, столбцы
-            Console.Write(newMatrix[i,j] + " ");
-        }
-        Console.WriteLine();
-    }
+      
     return newMatrix;
 }
 
+int[,] PrintTwoDemArray(int [,] array)
+{
+  for(int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            Console.Write(array[i,j] + " ");
+        }
+        Console.WriteLine();
+    }
+    return array;
+}
 
 int[,] ReplaceEvenSquare (int[,] array)
 {
-    for(int i = 0; i < array.GetLength(0); i++)
-        {
-        for (int j = 0; j < array.GetLength(1); j++)
-            {
-                if (i % 2 == 0 && j % 2 == 0)
-                {
-                    array[i,j] = array[i,j]*array[i,j];   
-                    Console.Write(array[i,j] + " ");
-                 }
-                else Console.Write(array[i,j] + " ");
-            }
-        Console.WriteLine();
-        }
+    for(int i = 0; i < array.GetLength(0); i+=2)
+        for (int j = 0; j < array.GetLength(1); j+=2)
+                    array[i,j] *= array[i,j];   
+            
         return array;
 }
 
@@ -89,11 +87,15 @@ int userColmns = Convert.ToInt32(Console.ReadLine());
 int max = 9;
 int min = -10;
 
-int[,] defineArray = CreateRandomTwoDemArray(userRows, userColumns, min, max);
+int[,] defineArray = CreateRandomTwoDemArray(userRows, userColmns, min, max);
+
+PrintTwoDemArray(defineArray);
 
 Console.WriteLine();
 
 ReplaceEvenSquare(defineArray);
+
+PrintTwoDemArray(defineArray);
 */
 //Ex4  задать двумерный массив, найти сумму элементов на главной диагонали 
 
@@ -116,10 +118,7 @@ int DiagonalSum(int[,] array)
     if (rows == columns)
         {
             for (int i = 0; i < rows; i++)
-            {
-                int j = i;
-                sum += array[i,j];
-            }
+            sum += array[i,i];   
         }
     else Console.WriteLine("This method works only when nb of rows = nb of columns");
     return sum;
@@ -151,5 +150,5 @@ PrintTwoDemArray(defineArray);
 
 Console.WriteLine("diagonal elements sum is " + DiagonalSum(defineArray));
 
-
+*/
 
