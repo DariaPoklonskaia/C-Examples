@@ -68,7 +68,7 @@ int[,] ReplaceEvenSquare (int[,] array)
         {
         for (int j = 0; j < array.GetLength(1); j++)
             {
-                if (i % 2 == 0 & j % 2 == 0)
+                if (i % 2 == 0 && j % 2 == 0)
                 {
                     array[i,j] = array[i,j]*array[i,j];   
                     Console.Write(array[i,j] + " ");
@@ -112,7 +112,7 @@ int[,] CreateRandomTwoDemArray(int a, int b, int min, int max)
     return newMatrix;
 }
 
-int DiagonalSum (int[,] array)
+int DiagonalSum(int[,] array)
 {
     int rows = array.GetLength(0);
     int columns = array.GetLength(1);
@@ -129,15 +129,13 @@ int DiagonalSum (int[,] array)
     return sum;
 }
 
-Console.WriteLine("Input nb of rows");
-int userRows = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Input nb of rows and columns");
+int userRowsCol = Convert.ToInt32(Console.ReadLine());
 
-Console.WriteLine("Input nb of columns");
-int userColmns = Convert.ToInt32(Console.ReadLine());
 
 int max = 9;
 int min = -10;
 
-int[,] defineArray = CreateRandomTwoDemArray(userRows, userColmns, min, max);
+int[,] defineArray = CreateRandomTwoDemArray(userRowsCol, userRowsCol, min, max);
 
-Console.WriteLine("diagonal elements sum is " + CreateRandomTwoDemArray(defineArray));
+Console.WriteLine("diagonal elements sum is " + DiagonalSum(defineArray));
