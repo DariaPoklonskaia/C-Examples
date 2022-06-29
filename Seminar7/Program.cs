@@ -97,18 +97,14 @@ ReplaceEvenSquare(defineArray);
 */
 //Ex4  задать двумерный массив, найти сумму элементов на главной диагонали 
 
+
 int[,] CreateRandomTwoDemArray(int a, int b, int min, int max)
 {
     int[,] newMatrix = new int[a, b];
-    for(int i = 0; i < a; i++)
-    {
+    for(int i = 0; i < a; i++) //если одна строка в цикле, то можно и без скобок фигурных
         for (int j = 0; j<b; j++)
-        {
             newMatrix[i,j] = new Random().Next(min, max +1); // строки, столбцы
-            Console.Write(newMatrix[i,j] + " ");
-        }
-        Console.WriteLine();
-    }
+    
     return newMatrix;
 }
 
@@ -129,6 +125,19 @@ int DiagonalSum(int[,] array)
     return sum;
 }
 
+int[,] PrintTwoDemArray(int [,] array)
+{
+  for(int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            Console.Write(array[i,j] + " ");
+        }
+        Console.WriteLine();
+    }
+    return array;
+}
+
 Console.WriteLine("Input nb of rows and columns");
 int userRowsCol = Convert.ToInt32(Console.ReadLine());
 
@@ -138,4 +147,9 @@ int min = -10;
 
 int[,] defineArray = CreateRandomTwoDemArray(userRowsCol, userRowsCol, min, max);
 
+PrintTwoDemArray(defineArray);
+
 Console.WriteLine("diagonal elements sum is " + DiagonalSum(defineArray));
+
+
+
