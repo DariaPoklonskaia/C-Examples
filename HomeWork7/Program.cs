@@ -50,7 +50,6 @@ int[,] CreateRandomTwoDem(int rows, int col, int min, int max)
         for (int j = 0; j < newArray.GetLength(1); j++)
         {
             newArray[i,j] = new Random().Next(min, max + 1);
-            newArray[i,j] = min + newArray[i,j];
         }
             
 
@@ -107,7 +106,6 @@ int[,] CreateRandomTwoDem(int rows, int col, int min, int max)
         for (int j = 0; j < newArray.GetLength(1); j++)
         {
             newArray[i,j] = new Random().Next(min, max + 1);
-            newArray[i,j] = min + newArray[i,j];
         }
             
 
@@ -126,8 +124,38 @@ void PrintTwoDemArray(int[,] array)
     }
 }
 
-double FindColumnAverage(int[,] array)
+void FindColumnAverage(int[,] array)
 {
-    double average = 0; 
-     
+    double averageSum = 0; 
+    double averageCol = 0;
+    for (int j = 0; j < array.GetLength(1); j++)
+    {
+        for (int i = 0; i < array.GetLength(0); i++)
+        {
+            averageSum = averageSum + array[i,j];
+        }
+    averageCol = averageSum/(array.GetLength(0));
+    Console.Write(averageCol + "; ");
+    averageSum = 0;
+    averageCol = 0;
+    }
 }
+
+Console.WriteLine("Input nb of rows");
+int userRows = Convert.ToInt32(Console.ReadLine());
+
+Console.WriteLine("Input nb of col");
+int userCol = Convert.ToInt32(Console.ReadLine());
+
+int defaultMin = -100;
+int defaultMax = 99;
+
+int[,] userArray = CreateRandomTwoDem(userRows, userCol, defaultMin, defaultMax); 
+
+Console.WriteLine("Columns average are:");
+FindColumnAverage(userArray);
+
+Console.WriteLine();
+
+PrintTwoDemArray(userArray);
+
