@@ -75,9 +75,9 @@ int[,] TransponeArray(int[,] array)
     if (array.GetLength(0) == array.GetLength(1))
     {
         int temp;
-        for (int i = 0; i < array.GetLength(0); i++)
+        for (int i = 0; i < array.GetLength(0); i++) // i < (array.GetLength(0) - 1)
         {
-            for (int j =0; j < i; j++)
+            for (int j =0; j < i; j++) // или j = i+1; j < array.GetLength(1)
             {
                 temp = array[i,j];
                 array[i,j] = array[j,i];
@@ -144,9 +144,12 @@ int[] FindIndexes(int[,] array)
     {
         for (int j = 0; j < array.GetLength(1); j++)
         {
-            if (array[i,j] < min) min = array[i,j]; 
-            indexArray[0] = i;
-            indexArray[1] = j;
+            if (array[i,j] < min)  
+            {
+                min = array[i,j];
+                indexArray[0] = i;
+                indexArray[1] = j;
+            }
         }
     }
     return indexArray;
@@ -160,7 +163,7 @@ int[,] ChangeLinesToZero (int [,] arrayToModify, int[] arrayWithIndexes)
         arrayToModify[i,j] = 0;
     }
 
-    for (int j=0; j < arrayToModify.GetLength(1); j++)
+    for (int j = 0; j < arrayToModify.GetLength(1); j++)
     {
         int i = arrayWithIndexes[0];
         arrayToModify[i,j] = 0;
@@ -175,12 +178,20 @@ int userRows = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("Input nb of columns");
 int userCol = Convert.ToInt32(Console.ReadLine());
 
-int[,] userArray = CreateTwoDemSquareArray(userRows, userCol, 9, 0);
+int[,] userArray = CreateTwoDemSquareArray(userRows, userCol, 100, 0);
 
 PrintTwoDemArray(userArray);
 
 Console.WriteLine();
 
-int[] indexes= FindIndexes(userArray); 
+int[] indexesArray = FindIndexes(userArray); 
 
-ChangeLinesToZero(userArray, );
+Console.WriteLine(indexesArray[0] + " " + indexesArray[1]);
+
+Console.WriteLine();
+
+ChangeLinesToZero(userArray, indexesArray);
+
+PrintTwoDemArray(userArray);
+
+// что если два минимума?
