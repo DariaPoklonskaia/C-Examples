@@ -46,12 +46,12 @@ PrintTwoDemArray(myArray);
 // перегрузка метода: перечень входящих аргументов отличается, чтобы была возможность отправлять разные аргументы.
 
 //Ex2 двумерный массив, замена строк на столбцы и сообщить, если это невозможно.
-
-int[,] CreateTwoDemSquareArray (int m, int max, int min)
+/*
+int[,] CreateTwoDemSquareArray (int m, int n, int max, int min)
 {
-    int[,] array = new int[m,m];
+    int[,] array = new int[m,n];
     for (int i=0; i < m; i++)
-            for (int j=0; j < m; j++)
+            for (int j=0; j < n; j++)
                 array[i,j] = new Random().Next(min, max +1);
         
     return array;
@@ -77,18 +77,110 @@ int[,] TransponeArray(int[,] array)
         int temp;
         for (int i = 0; i < array.GetLength(0); i++)
         {
-            for (int j =0; j < array.GetLength(1); j++)
+            for (int j =0; j < i; j++)
             {
-                array[i,j] = temp;
+                temp = array[i,j];
                 array[i,j] = array[j,i];
                 array[j,i] = temp;
             }
         }
-        return array;
+        
     }
     else Console.WriteLine("This method works only for square matrix");
-    return array;
     
+    return array;
 }
+
+
+Console.WriteLine("Input nb of rows");
+int userRows = Convert.ToInt32(Console.ReadLine());
+
+Console.WriteLine("Input nb of columns");
+int userCol = Convert.ToInt32(Console.ReadLine());
+
+int[,] userArray = CreateTwoDemSquareArray(userRows, userCol, 10, 0);
+
+PrintTwoDemArray(userArray);
+
+Console.WriteLine();
+
+TransponeArray(userArray);
+
+PrintTwoDemArray(userArray);
+*/
 //Ex3 из двумерного массива целых чисел удалить строку и столбец (заменить на 0),
 // на пересечении которых расположен наименьший элемент.
+
+int[,] CreateTwoDemSquareArray (int m, int n, int max, int min)
+{
+    int[,] array = new int[m,n];
+    for (int i=0; i < m; i++)
+            for (int j=0; j < n; j++)
+                array[i,j] = new Random().Next(min, max +1);
+        
+    return array;
+}
+
+void PrintTwoDemArray(int[,] array)
+{
+    for (int i=0; i < array.GetLength(0); i++)
+    {
+        for (int j=0; j < array.GetLength(1); j++)
+        {
+            Console.Write(array[i,j] + " ");
+        }
+        Console.WriteLine();
+    }      
+            
+}
+
+int[] FindIndexes(int[,] array)
+{
+    int min = array[0,0];
+    int size = 2;
+    int[] indexArray = new int[size];
+    
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            if (array[i,j] < min) min = array[i,j]; 
+            indexArray[0] = i;
+            indexArray[1] = j;
+        }
+    }
+    return indexArray;
+}
+
+int[,] ChangeLinesToZero (int [,] arrayToModify, int[] arrayWithIndexes)
+{
+    for (int i = 0; i < arrayToModify.GetLength(0); i++)
+    {
+        int j = arrayWithIndexes[1];
+        arrayToModify[i,j] = 0;
+    }
+
+    for (int j=0; j < arrayToModify.GetLength(1); j++)
+    {
+        int i = arrayWithIndexes[0];
+        arrayToModify[i,j] = 0;
+    }
+
+    return arrayToModify;
+}
+
+Console.WriteLine("Input nb of rows");
+int userRows = Convert.ToInt32(Console.ReadLine());
+
+Console.WriteLine("Input nb of columns");
+int userCol = Convert.ToInt32(Console.ReadLine());
+
+int[,] userArray = CreateTwoDemSquareArray(userRows, userCol, 9, 0);
+
+PrintTwoDemArray(userArray);
+
+Console.WriteLine();
+
+int[] indexes= FindIndexes(userArray); 
+
+ChangeLinesToZero(userArray, );
