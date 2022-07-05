@@ -115,3 +115,77 @@ Console.WriteLine("Rows max sum is " + ArrayRowsMaxSum(randomArray));
 */
 
 //  Задача 62. Заполните спирально массив 4 на 4
+
+int[,] SpriralArray(int m)
+{
+    m = 4;
+    int[,] array = new int[m,m];
+    int count = 1;
+    for (int j = 0; j < array.GetLength(1) - 1; j++)
+        {
+            int i = 0;
+            array[i,j] = count;
+            count++;
+        }
+
+    for (int i = 0; i < array.GetLength(0) - 1; i++)
+        {
+            int j = array.GetLength(1) - 1;
+            array[i,j] = count;
+            count++;
+        }
+
+    for (int j = array.GetLength(1) - 1; j > 0; j--)
+        {
+            int i = array.GetLength(0) - 1;
+            array[i,j] = count;
+            count++;
+        }
+
+    for (int i = array.GetLength(1) - 1; i > 0; i--)
+        {
+            int j = 0;
+            array[i,j] = count;
+            count++;
+        }
+
+    for (int j = 1; j < array.GetLength(1) - 1; j++)
+        {
+            int i = 1;
+            array[i,j] = count;
+            count++;
+        }
+    for (int i = 2; i < array.GetLength(0) - 1; i++)
+        {
+            int j = array.GetLength(1) - 1 - 1;
+            array[i,j] = count;
+            count++;
+        }
+
+    for (int j = array.GetLength(1) - 1 - 1 -1; j > 0; j--)
+        {
+            int i = array.GetLength(0) - 1 - 1;
+            array[i,j] = count;
+            count++;
+        }
+
+        return array;
+}
+
+
+void PrintArray(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            Console.Write(array[i,j] + " ");
+        }
+        Console.WriteLine();
+    }
+}
+
+int[,] userArray = SpriralArray(4);
+
+PrintArray(userArray);
+
