@@ -61,20 +61,22 @@ Console.WriteLine(SumOfDigits(1123));
 /*
 int PowAB(int a, int b)
 {
-    if (b == 1) return a;
+    if (b == 1) return a; // return b==1 ? a : a*PowAB(a, b-1);
     else return a*PowAB(a, b-1);
 }
 
 Console.WriteLine(PowAB(2, 5));
-*/
+
 
 //Ex5 а возвести в степень б (b > < 0)
 
-double PowAB(int a, int b)
+double PowAB(int a, int b) // еще если степень четная, то можно умножать а на а сразу и делить степеь в два раза
 {
     if (b == 1) return a;
     if (b > 0) return a*PowAB(a, b-1);
     else return 1/(a*PowAB(a, -b-1));
 }
 
-Console.WriteLine(PowAB(2, -2));
+Console.WriteLine(PowAB(3, 4));
+*/
+
