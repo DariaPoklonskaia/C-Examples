@@ -57,7 +57,8 @@ int SumOfDigits(int num)
 Console.WriteLine(SumOfDigits(1123));
 */
 
-//Ex4 а возвести в степень б
+//Ex4 а возвести в степень б (b > 0)
+/*
 int PowAB(int a, int b)
 {
     if (b == 1) return a;
@@ -65,4 +66,15 @@ int PowAB(int a, int b)
 }
 
 Console.WriteLine(PowAB(2, 5));
+*/
 
+//Ex5 а возвести в степень б (b > < 0)
+
+double PowAB(int a, int b)
+{
+    if (b == 1) return a;
+    if (b > 0) return a*PowAB(a, b-1);
+    else return 1/(a*PowAB(a, -b-1));
+}
+
+Console.WriteLine(PowAB(2, -2));
