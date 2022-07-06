@@ -27,18 +27,13 @@ ShowNums(userN);
 
 */
 //Ex2 вывести числа от m до n ; m < n от меньшего к большего
+/*
 void ShowNums(int n, int m)
 {
-    if (m < n)
-    {
-        if(n != m-1)
+       if(n != m)
             ShowNums(n-1, m);
-             
-        Console.Write(n + " "); // выдаст числа от 1 до 5 при схлопывании всех методов
-    }
-
-     else Console.WriteLine("m should be less then n"); 
-    
+       
+        Console.Write(n + " ");
 }
 
 Console.WriteLine("Input first number");
@@ -48,6 +43,26 @@ Console.WriteLine("Input second number");
 int userM = Convert.ToInt32(Console.ReadLine());
 
 ShowNums(userN, userM);
+*/
 
 //Ex3 принимать на вход число, и возвращать сумму цифр. 
+
+/*
+int SumOfDigits(int num)
+{
+    if(num / 10 == 0) return num%10;
+    else return num%10 + SumOfDigits(num/10);
+}
+
+Console.WriteLine(SumOfDigits(1123));
+*/
+
 //Ex4 а возвести в степень б
+int PowAB(int a, int b)
+{
+    if (b == 1) return a;
+    else return a*PowAB(a, b-1);
+}
+
+Console.WriteLine(PowAB(2, 5));
+
