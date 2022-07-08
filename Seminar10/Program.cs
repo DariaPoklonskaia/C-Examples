@@ -48,20 +48,29 @@ Console.WriteLine("Nb of long words is " + NumberOfLongWords(names));
 */
 
 //Ex2 принимает на вход два массива строк и возвращает их попарно объединенных
-/*
+
 string[] MergeArray(string[] array1, string[] array2) // лучше все объединять в наибольший массив и не создавать новый, 
 {
-    int size = array1.Length; // что не даст эксепншн и нужно будет идти по размеру наименьшего массива
-    if (size < array2.Length)
-        size = array2.Length; 
-
-    string[] newArray = new string[size];
-    for (int i = 0; i < size; i++)
+    int size;
+    if (array1.Length < array2.Length)
+    {
+        size = array1.Length;
+        for (int i = 0; i < size; i++)
         {
-            newArray[i] = array1[i] + " " + array2[i]; 
+            array1[i] = array1[i] + " " + array2[i]; 
         }
+        return array1;
+    }
 
-    return newArray;
+    else
+    {
+        size = array2.Length;
+        for (int i = 0; i < size; i++)
+        {
+            array2[i] = array1[i] + " " + array2[i]; 
+        }
+        return array2;
+    }
 }
 
 void ShowArray(string[] array)
@@ -72,17 +81,17 @@ void ShowArray(string[] array)
     Console.WriteLine();
 }
 
-string array1user = {"Ivan", "Anna", "Max", "Denis"};
+string[] array1user = {"Ivan", "Anna", "Max", "Denis"};
 
-string array2user = {"1", "2", "3", "4"};
+string[] array2user = {"1", "2", "3", "4", "5"};
 
 string[] unitedArray = MergeArray(array1user, array2user);
 ShowArray(unitedArray);
 
-*/
+
 
 // программа, которая считает количество строк которые начинаются на буквы Y или W
-
+/*
 int CountWords(string[] array, char a, char b) // при работе с символами и элементами строки используется char 
 {
     int count = 0; 
@@ -102,5 +111,5 @@ string [] array1user = {"Yvan", "Wnna", "Max", "Denis"};
 Console.WriteLine(CountWords(array1user, aUser, bUser));
 
 // char a = Convert.ToChar(Console.ReadLine());
-
+*/
 
